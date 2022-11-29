@@ -1,6 +1,8 @@
 package com.zebnitckii.spring_mvc_hibernate.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -30,6 +32,11 @@ public class Employee {
     @JoinColumn(name = "position_id")
     private Position position;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "employees_projects", joinColumns = @JoinColumn(name = "employee_id")
+            , inverseJoinColumns = @JoinColumn(name = "project_id"))
+    private List<Project> projects;
+
     public Employee() {
     }
 
@@ -39,6 +46,13 @@ public class Employee {
         this.age = age;
         this.salary = salary;
         this.address = address;
+    }
+
+    public void addProjectToEmployee(Project project) {
+        if (projects == null) {
+            projects = new ArrayList<>();
+        }
+        projects.add(project);
     }
 
     public int getId() {
@@ -95,5 +109,13 @@ public class Employee {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 }

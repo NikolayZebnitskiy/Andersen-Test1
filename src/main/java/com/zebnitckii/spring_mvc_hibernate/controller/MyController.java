@@ -1,6 +1,7 @@
 package com.zebnitckii.spring_mvc_hibernate.controller;
 
 import com.zebnitckii.spring_mvc_hibernate.entity.Employee;
+import com.zebnitckii.spring_mvc_hibernate.entity.Project;
 import com.zebnitckii.spring_mvc_hibernate.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,5 +56,22 @@ public class MyController {
         model.addAttribute("employee", employee);
 
         return "employee-info";
+    }
+
+    @RequestMapping("/deleteEmployee")
+    public String deleteEmployee(@RequestParam("empId") int id) {
+
+        employeeService.deleteEmployee(id);
+
+        return "redirect:/allEmployees";
+    }
+
+    @RequestMapping("/projectsEmployee")
+    public String projectsEmployee(@RequestParam("empId")  int id, Model model) {
+
+        Employee employee = employeeService.getEmployee(id);
+        model.addAttribute("employee", employee);
+
+        return "project-employee";
     }
 }

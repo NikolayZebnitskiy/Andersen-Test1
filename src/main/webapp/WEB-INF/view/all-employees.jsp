@@ -28,6 +28,10 @@
              <c:param name="empId" value="${emp.id}"/>
         </c:url>
 
+        <c:url var="projectsButton" value="/projectsEmployee">
+                     <c:param name="empId" value="${emp.id}"/>
+                </c:url>
+
         <tr>
             <td>${emp.name}</td>
             <td>${emp.surname}</td>
@@ -41,6 +45,9 @@
 
                 <input type="button" value="Delete"
                 onclick="window.location.href = '${deleteButton}'"/>
+
+                <input type="button" value="Projects"
+                onclick="window.location.href = '${projectsButton}'"/>
             </td>
         </tr>
 
