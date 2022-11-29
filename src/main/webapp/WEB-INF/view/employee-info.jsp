@@ -21,7 +21,7 @@
     <br><br>
     Address <form:input path="address"/>
     <br><br>
-    Position <form:input path="position"/>
+    Position <form:input path="position.id"/>
     <br><br>
     <input type="submit" value="OK">
 
