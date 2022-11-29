@@ -1,0 +1,12 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CheckTagEmptyBody" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="CheckValidXmlInScriptTagBody" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="DeprecatedClassUsageInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="XmlDefaultAttributeValue" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="XmlDeprecatedElement" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="XmlUnboundNsPrefix" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="XmlUnusedNamespaceDeclaration" enabled="true" level="ERROR" enabled_by_default="true" />
+  </profile>
+</component>
