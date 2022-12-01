@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -36,5 +37,20 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Transactional
     public void deleteEmployee(int id) {
         employeeDAO.deleteEmployee(id);
+    }
+
+    @Override
+    @Transactional
+    public List<Employee> getAllEmployeesWithoutProject() {
+
+     /*   List<Employee> employees = new ArrayList<>();
+
+        for (Employee emp : employeeDAO.getAllEmployees()) {
+            if (emp.getProjects().size() == 0) {
+                employees.add(emp);
+            }
+        }*/
+
+        return employeeDAO.getAllEmployeesWithoutProject();
     }
 }

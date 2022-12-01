@@ -16,7 +16,7 @@ public class Position {
     @Column(name = "position_name")
     private String positionName;
 
-    @OneToMany(mappedBy = "position")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE}, mappedBy = "position")
     private List<Employee> employees;
 
     public Position() {

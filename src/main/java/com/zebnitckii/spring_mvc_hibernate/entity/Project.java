@@ -19,8 +19,9 @@ public class Project {
     @Column(name = "project_status")
     private String projectStatus;
 
-    @Column(name = "customer_id")
-    private int customer;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "employees_projects", joinColumns = @JoinColumn(name = "project_id")
@@ -30,7 +31,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(String projectName, String projectStatus, int customer) {
+    public Project(String projectName, String projectStatus, Customer customer) {
         this.projectName = projectName;
         this.projectStatus = projectStatus;
         this.customer = customer;
@@ -67,11 +68,12 @@ public class Project {
         this.projectStatus = projectStatus;
     }
 
-    public int getCustomer() {
+    public Customer
+    getCustomer() {
         return customer;
     }
 
-    public void setCustomer(int customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
